@@ -44,26 +44,26 @@ Description :
 /** 									   **/
 /****************************************************************************/
  /**** C type extensions ****/
-typedef unsigned char 		bool;
-typedef unsigned char 		uint8;
-typedef char 				int8;
-typedef unsigned int 		uint16;
-typedef int 				int16;
-typedef unsigned long 		uint32;
-typedef long 				int32;
-typedef float 				float32;
-typedef double 				float64;
+typedef unsigned char	bool;
+typedef unsigned char 	uint8;
+typedef char		int8;
+typedef unsigned int 	uint16;
+typedef int 		int16;
+typedef unsigned long 	uint32;
+typedef long 		int32;
+typedef float 		float32;
+typedef double 		float64;
 /**** Struct 			****/
 struct Player
 {
-	char 			name[20];
+	char 		name[20];
 	unsigned int 	win;
 	unsigned int 	draw;
 	unsigned int 	lose;
-	float 			rating;	
+	float 		rating;	
 };
 typedef struct	Player player;
-extern 			player p1;
+extern 		player p1;
 extern struct 	Player *pt;
 extern struct 	Player *new_player;
 /****************************************************************************/
