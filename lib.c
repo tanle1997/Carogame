@@ -1,16 +1,16 @@
 /*
   							**********************
 ******************************* C SOURCE FILE ********************************
-** 							********************** 							**
+** 							********************** 	
+**
 ** 																			**
 ** project : Caro Games														** 
 ** filename : lib.c															**
 ** version : 1.1 															**
 ** date : July 10, 2019														**
 **    																		**
-******************************************************************************
-** 																			**
-** Copyright (c) 2019				 										**
+****************************************************************************** 																			**
+** Copyright (c) 2019														**
 ** All rights reserved. 													**
 ** 																			**
 ******************************************************************************
@@ -22,40 +22,40 @@ Revised by :
 Description : Original version.
                                                                              */
 /******************************************************************************
-*** 																		***
-*** 						MODULES USED 									***
-*** 																		***
+*** 									   									***
+*** 				MODULES USED 				   							***
+*** 									   									***
 ******************************************************************************/
 #include "lib.h"
 /******************************************************************************
-*** 																		***
-*** 						DEFINITIONS AND MACROS 							***
-*** 																		***
+*** 									   									***
+*** 				DEFINITIONS AND MACROS 			   						***
+*** 									   									***
 ******************************************************************************/
 /******************************************************************************
-*** 																		***
-*** 						TYPEDEFS AND STRUCTURES 						***
-***    																		***
+*** 									   									***
+*** 				TYPEDEFS AND STRUCTURES 		   						***
+***    									   									***
 ******************************************************************************/
 /******************************************************************************
-*** 																		***
-***    						PROTOTYPES OF LOCAL FUNCTIONS 					***
-*** 																		***
+*** 									    								***
+***    				PROTOTYPES OF LOCAL FUNCTIONS 		    				***
+*** 									    								***
 ******************************************************************************/
 /******************************************************************************
-*** 																		***
-*** 						EXPORTED VARIABLES 								***
-***    																		***
+*** 									    								***
+*** 				EXPORTED VARIABLES 			    						***
+***    									    								***
 ******************************************************************************/
 /******************************************************************************
-***    																		***
-*** 						GLOBAL VARIABLES 								***
-*** 																		***
+***    									   									***
+*** 				GLOBAL VARIABLES 			   							***
+*** 									   									***
 ******************************************************************************/
 /******************************************************************************
-*** 																		***
-*** 						EXPORTED FUNCTIONS 								***
-***    																		***
+*** 									   									***
+*** 				EXPORTED FUNCTIONS			   							***
+***    									   									***
 ******************************************************************************/
 /* Xoa mang du lieu choi
  * Tham so *arr[] la mang con tro tuong duong voi mang hai chieu **pointer dung de
@@ -115,7 +115,7 @@ void play(uint8 *stt,unsigned short int *rowcheck,unsigned short int *colcheck,u
 		do
 		{
 			printf("Player 2: ");
-            scanf("%hu %hu",rowcheck,colcheck);
+			scanf("%hu %hu",rowcheck,colcheck);
 			fflush(stdin);
 		}
         while( (*rowcheck>=row) || (*colcheck>=col) || *(dataarr[*rowcheck]+*colcheck)!=0);
@@ -174,7 +174,7 @@ int checkWin(uint8 *a[],unsigned short int r,unsigned short int c)
 			Count2++;
 			i++;
 			if(i==(row-1))
-				break;
+			break;
 		}
 	}
 	i=r;	j=c;
@@ -185,7 +185,7 @@ int checkWin(uint8 *a[],unsigned short int r,unsigned short int c)
 			Count2++;
 			i--;
 			if(i==0)
-				break;
+			break;
 		}
 	}
 	i=r;	j=c;	Count3=0; 	//	Kiem tra hang cheo
@@ -197,7 +197,7 @@ int checkWin(uint8 *a[],unsigned short int r,unsigned short int c)
 			i++;
 			j++;
 			if(i==(row-1)||j==(col-1))
-				break;
+			break;
 		}
 	}
 	i=r;	j=c;
@@ -209,7 +209,7 @@ int checkWin(uint8 *a[],unsigned short int r,unsigned short int c)
 			i--;
 			j--;
 			if(i==0||j==0)
-				break;
+			break;
 		}
 	}
 	i=r;	j=c;	Count4=0;
@@ -221,7 +221,7 @@ int checkWin(uint8 *a[],unsigned short int r,unsigned short int c)
 			i--;
 			j++;
 			if(i==0||j==(col-1))
-				break;
+			break;
 		}
 	}
 	i=r;	j=c;
@@ -233,7 +233,7 @@ int checkWin(uint8 *a[],unsigned short int r,unsigned short int c)
 			i++;
 			j--;
 			if(i==(row-1)||j==0)
-				break;
+			break;
 		}
 	}
 	if(Count1>=4||Count2>=4||Count3>=4||Count4>=4)
