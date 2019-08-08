@@ -452,7 +452,7 @@ void printHistory(struct Player *p)
     {
         printf("%20s\tWin: %4d\tDraw: %4d\tLose: %4d\tRating: %4.3f\n",(p+i)->name,(p+i)->win,(p+i)->draw,(p+i)->lose,(double)(p+i)->rating);
     }
-}
+} 
 /******************************************************************************
 ***    																		***
 *** 						LOCAL FUNCTIONS 								***
