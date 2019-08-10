@@ -17,25 +17,25 @@ uint8	*m_Data[row];
 // main
 int main() 
 {   // khai bao cac bien va cap bo nho
-    unsigned char i;
-    int k;
- 	uint8	*point = NULL;
- 	uint8 	*win; 
- 	/* Khoi tao gia tri */
-    m_Stt	=	0;
-    k 	=	0; 	m_Count	=	0;
-	pt	=	(struct Player*)calloc(20,sizeof(struct Player));
-	win	=	(uint8*)calloc(1,sizeof(uint8));
-	point	=(uint8*)calloc(100,sizeof(uint8));
-	*win= 	0;
-	newPlayer	=	(struct Player*)calloc(2,sizeof(struct Player));
-	for(i=0;i<row;i++)
-	{
-        m_Data[i] = (uint8 *)calloc(col,sizeof(uint8));
-        if(m_Data[i]==NULL)
-		{
-			printf("Not enough memory!\n");	return 0;
-		}
+ unsigned char i;
+ int k;
+ uint8	*point = NULL;
+ uint8 	*win; 
+ /* Khoi tao gia tri */
+ m_Stt	=	0;
+ k 	=	0; 	m_Count	=	0;
+ pt	=	(struct Player*)calloc(20,sizeof(struct Player));
+ win	=	(uint8*)calloc(1,sizeof(uint8));
+ point	=(uint8*)calloc(100,sizeof(uint8));
+ *win= 	0;
+ newPlayer	=(struct Player*)calloc(2,sizeof(struct Player));
+ for(i=0;i<row;i++)
+ {
+  m_Data[i] = (uint8 *)calloc(col,sizeof(uint8));
+  if(m_Data[i]==NULL)
+  {
+	printf("Not enough memory!\n");	return 0;
+  }
 	}
     if(pt==NULL || newPlayer == NULL|| point==NULL) // kiem tra da cap bo nho thanh cong hay chua
 	{
