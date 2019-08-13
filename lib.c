@@ -289,7 +289,7 @@ void inputData(struct Player **p,struct Player *player1,uint8 *win,uint8 *arr[],
 			printf("%s win!\n",player1->name);
 			player1->win		+=	1;
 			(player1+1)->lose	+=	1;
-			*win				=	1;
+			*win			=	1;
 			break; 
 		}
 		if(checkWin(arr,*rowcheck,*colcheck)==-1)
@@ -297,7 +297,7 @@ void inputData(struct Player **p,struct Player *player1,uint8 *win,uint8 *arr[],
 			printf("%s win!\n",(player1+1)->name);
 			(player1+1)->win	+=	1;
 			player1->lose		+=	1;
-			*win				=	2;
+			*win			=	2;
 			break;
 		}
 		if(checkDraw()==1)
@@ -305,7 +305,7 @@ void inputData(struct Player **p,struct Player *player1,uint8 *win,uint8 *arr[],
 			printf("Draw!\n");
 			player1->draw		+=	1;
 			(player1+1)->draw	+=	1;
-			*win				=	0;
+			*win			=	0;
 			break;
 		}
         play(&m_Stt,rowcheck,colcheck,m_Data,pointcheck);
