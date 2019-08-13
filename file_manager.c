@@ -3,10 +3,10 @@
 ******************************* C SOURCE FILE ********************************
 ** 			****************************			    **
 ** 									    **
-** project : Caro Games							    **
-** filename : file_manager.c						    **
-** version : 1.1 							    **
-** date : July 10, 2019							    **
+** project 	: Caro Games						    **
+** filename 	: file_manager.c					    **
+** version 	: 1.1 							    **
+** date 	: July 10, 2019						    **
 **    									    **
 ******************************************************************************
 ** 									    **
@@ -16,10 +16,10 @@
 ******************************************************************************
 VERSION HISTORY:
 ----------------
-Version : 1.1
-Date :
-Revised by :
-Description : Original version.
+Version 	: 1.1
+Date 		:
+Revised by 	:
+Description 	: Original version.
 */
 /******************************************************************************
 ***                                                                         ***
