@@ -1,61 +1,61 @@
 /*
-  							**********************
+  			***************************
 ******************************* C SOURCE FILE ********************************
-** 							********************** 	
+** 			***************************
 **
 ** 																			**
-** project : Caro Games														** 
-** filename : lib.c															**
-** version : 1.1 															**
-** date : July 10, 2019														**
-**    																		**
+** project : Caro Games							    ** 
+** filename : lib.c							    **
+** version : 1.1 							    **
+** date : July 10, 2019							    **
+**    									    **
 ****************************************************************************** 																			**
-** Copyright (c) 2019														**
-** All rights reserved. 													**
-** 																			**
+** Copyright (c) 2019							    **
+** All rights reserved. 						    **
+** 									    **
 ******************************************************************************
 VERSION HISTORY:
-----------------
+---------------
 Version : 1.1
 Date : 
 Revised by : 
 Description : Original version.
                                                                              */
 /******************************************************************************
-*** 									   									***
-*** 				MODULES USED 				   							***
-*** 									   									***
+*** 									    ***
+*** 				MODULES USED 				    ***
+*** 									    ***
 ******************************************************************************/
 #include "lib.h"
 /******************************************************************************
-*** 									   									***
-*** 				DEFINITIONS AND MACROS 			   						***
-*** 									   									***
+*** 									    ***
+*** 				DEFINITIONS AND MACROS 			    ***
+*** 									    ***
 ******************************************************************************/
 /******************************************************************************
-*** 									   									***
-*** 				TYPEDEFS AND STRUCTURES 		   						***
-***    									   									***
+*** 									    ***
+*** 				TYPEDEFS AND STRUCTURES 		    ***
+***    									    ***
 ******************************************************************************/
 /******************************************************************************
-*** 									    								***
-***    				PROTOTYPES OF LOCAL FUNCTIONS 		    				***
-*** 									    								***
+*** 									    ***
+***    				PROTOTYPES OF LOCAL FUNCTIONS 		    ***
+*** 									    ***
 ******************************************************************************/
 /******************************************************************************
-*** 									    								***
-*** 				EXPORTED VARIABLES 			    						***
-***    									    								***
+*** 									    ***
+*** 				EXPORTED VARIABLES 			    ***
+***    									    ***
 ******************************************************************************/
 /******************************************************************************
-***    									   									***
-*** 				GLOBAL VARIABLES 			   							***
-*** 									   									***
+***    									    ***
+*** 				GLOBAL VARIABLES 			    ***
+*** 									    ***
 ******************************************************************************/
 /******************************************************************************
-*** 									   									***
-*** 				EXPORTED FUNCTIONS			   							***
-***    									   									***
+*** 									    ***
+*** 				EXPORTED FUNCTIONS			    ***
+***    									    ***
 ******************************************************************************/
 /* Xoa mang du lieu choi
  * Tham so *arr[] la mang con tro tuong duong voi mang hai chieu **pointer dung de
@@ -66,7 +66,7 @@ void eraseData(uint8 *arr[])
 	uint8 i;
 	for(i=0;i<row;i++)
 	{
-        memset(arr[i],0,sizeof(uint8)*col);
+        	memset(arr[i],0,sizeof(uint8)*col);
 	}
 }
 void 	eraseArr(uint8 **pointer)
@@ -97,18 +97,18 @@ void play(uint8 *stt,unsigned short int *rowcheck,unsigned short int *colcheck,u
 	if(*stt==0)
 	{
 		do
-        {   // kiem tra chi so mang hop le
+       	 	{   // kiem tra chi so mang hop le
 			printf("Player 1: ");
-            scanf("%hu %hu",rowcheck,colcheck);
+            		scanf("%hu %hu",rowcheck,colcheck);
 			fflush(stdin); // xoa bo nho dem
 		}
-        while( (*rowcheck>=row ) || (*colcheck>=col ) || *(dataarr[*rowcheck]+*colcheck)!=0);
+        	while( (*rowcheck>=row ) || (*colcheck>=col ) || *(dataarr[*rowcheck]+*colcheck)!=0);
 		if(*(dataarr[*rowcheck]+*colcheck)==0)
 		{
-  		 *(dataarr[*rowcheck]+*colcheck)	=	'X';
-         *(pointcheck+m_Count) = (uint8)(((*rowcheck)<<4) | *colcheck);
-         m_Count++;
-	 	}
+			 *(dataarr[*rowcheck]+*colcheck)	=	'X';
+			 *(pointcheck+m_Count) = (uint8)(((*rowcheck)<<4) | *colcheck);
+			 m_Count++;
+		}
 	}
 	else
 	{
@@ -118,12 +118,12 @@ void play(uint8 *stt,unsigned short int *rowcheck,unsigned short int *colcheck,u
 			scanf("%hu %hu",rowcheck,colcheck);
 			fflush(stdin);
 		}
-        while( (*rowcheck>=row) || (*colcheck>=col) || *(dataarr[*rowcheck]+*colcheck)!=0);
+        	while( (*rowcheck>=row) || (*colcheck>=col) || *(dataarr[*rowcheck]+*colcheck)!=0);
 		if(*(dataarr[*rowcheck]+*colcheck)==0)
 		{
-  		 *(dataarr[*rowcheck]+*colcheck)	=	'O';
-         *(pointcheck+m_Count) = (uint8)(((*rowcheck)<<4) | *colcheck);
-         m_Count++;
+			 *(dataarr[*rowcheck]+*colcheck)	=	'O';
+			 *(pointcheck+m_Count) = (uint8)(((*rowcheck)<<4) | *colcheck);
+			 m_Count++;
 	 	}
 	}
 	*stt	=	!*stt;
@@ -265,21 +265,21 @@ void inputData(struct Player **p,struct Player *player1,uint8 *win,uint8 *arr[],
     m_totalPerson=0;
     if(m_Pl1 ==	0)     // *player luu gia struct hai nguoi choi da duoc cap nhat
 	{
-        m_totalPerson++;
+        	m_totalPerson++;
 		player1->win		=	0;
 		player1->draw		=	0;
 		player1->lose		=	0;
 		player1->rating		=	0.0;
 	}
-    if(m_Pl2 ==	0)
+    	if(m_Pl2 ==	0)
 	{
-        m_totalPerson++;
+        	m_totalPerson++;
 		(player1+1)->win	=	0;
 		(player1+1)->draw	=	0;
 		(player1+1)->lose	=	0;
 		(player1+1)->rating	=	0.0;
 	}
-    realloc(*p,sizeof(struct Player)*(m_oldPerson+m_totalPerson));
+    	realloc(*p,sizeof(struct Player)*(m_oldPerson+m_totalPerson));
 	while(1)
 	{
 		system("cls");
@@ -326,31 +326,31 @@ void replay(unsigned char *rp,struct Player *player,uint8 *a[],uint8 *win)
 			*(a[i]+j)=0;
 		}
 	}
-    while(m_Count--)
+    	while(m_Count--)
 	{
 		system("cls");
 		if(c%2==0)
 		{
-            *(a[*(rp+c)>>4]+(*(rp+c)&0x0f))='X';
+            		*(a[*(rp+c)>>4]+(*(rp+c)&0x0f))='X';
 		}
 		else
 		{
-            *(a[*(rp+c)>>4]+(*(rp+c)&0x0f))='O';
+            		*(a[*(rp+c)>>4]+(*(rp+c)&0x0f))='O';
 		}
 		playerInfo(player);
 		for(i=0;i<row;i++)
 		{
-				for(j=0;j<col;j++)
-				{
-					check(*(a[i]+j));
-					printf("|");
-				}
-				printf("\n");
-				for(j=0;j<13;j++)
-				{
-					printf("---");	
-	 			}
-				printf("\n");	
+			for(j=0;j<col;j++)
+			{
+				check(*(a[i]+j));
+				printf("|");
+			}
+			printf("\n");
+			for(j=0;j<13;j++)
+			{
+				printf("---");	
+			}
+			printf("\n");	
 		}
 		c++;
         Sleep(1000);
@@ -454,12 +454,12 @@ void printHistory(struct Player *p)
     }
 } 
 /******************************************************************************
-***    																		***
-*** 						LOCAL FUNCTIONS 								***
-*** 																		***
+***    									    ***
+*** 			LOCAL FUNCTIONS 	   			    ***
+*** 									    ***
 ******************************************************************************/ 
 /******************************************************************************
-*** 																		***
-*** 							EOF   										***
-*** 																		***
+*** 									    ***
+*** 			EOF   						    ***
+*** 									    ***
 ******************************************************************************/
