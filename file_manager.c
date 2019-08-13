@@ -97,17 +97,17 @@ void writeData(struct Player *p,struct Player *pl)
         if(m_Pl1==0 && m_Pl2==1)
 		{
             strcpy((p+m_oldPerson)->name,pl->name);
-            (p+m_oldPerson)->win			=	pl->win;
-            (p+m_oldPerson)->draw			=	pl->draw;
-            (p+m_oldPerson)->lose			=	pl->lose;
+            (p+m_oldPerson)->win		=	pl->win;
+            (p+m_oldPerson)->draw		=	pl->draw;
+            (p+m_oldPerson)->lose		=	pl->lose;
             (p+m_oldPerson)->rating 		=	(float)pl->win/(pl->win+pl->draw+pl->lose);
 		}
         else if(m_Pl1==1 && m_Pl2==0)
 		{
             strcpy((p+m_oldPerson)->name,(pl+1)->name);
-            (p+m_oldPerson)->win		=	(pl+1)->win;
-            (p+m_oldPerson)->draw		=	(pl+1)->draw;
-            (p+m_oldPerson)->lose		=	(pl+1)->lose;
+            (p+m_oldPerson)->win	=	(pl+1)->win;
+            (p+m_oldPerson)->draw	=	(pl+1)->draw;
+            (p+m_oldPerson)->lose	=	(pl+1)->lose;
             (p+m_oldPerson)->rating 	=	(float)(pl+1)->win/((pl+1)->win+(pl+1)->draw+(pl+1)->lose);
 		}
 	}
@@ -154,10 +154,10 @@ void getInfo(struct Player **p,struct Player *player,uint8 *win,uint8 *data[],ui
 		{
 			printf("%s la nguoi choi cu!\n",player->name);
             printf("Thang %d tran, hoa %d tran, thua %d tran, ti le %.3f\n",(*p+i)->win,(*p+i)->draw,(*p+i)->lose,(double)(*p+i)->rating);
-			player->win			=	(*p+i)->win;
-			player->draw		=	(*p+i)->draw;
-			player->lose		=	(*p+i)->lose;
-			player->rating		=	(*p+i)->rating;
+			player->win	=	(*p+i)->win;
+			player->draw	=	(*p+i)->draw;
+			player->lose	=	(*p+i)->lose;
+			player->rating	=	(*p+i)->rating;
             m_Pl1=1;	// flag
             m_Add1=i; //vi tri nguoi choi cu
 		}
@@ -179,22 +179,12 @@ void getInfo(struct Player **p,struct Player *player,uint8 *win,uint8 *data[],ui
 	writeData(*p,player);
 }
 /******************************************************************************
-***    																		***
-*** 						LOCAL FUNCTIONS 								***
-*** 																		***
+***    									    ***
+*** 				LOCAL FUNCTIONS 			    ***
+*** 									    ***
 ******************************************************************************/
 /******************************************************************************
-*** 																		***
-***                             EOF   										***
-*** 																		***
+*** 									    ***
+***                             EOF   					    ***
+*** 									    ***
 ******************************************************************************/
-/******************************************************************************
-***    																		***
-*** 						LOCAL FUNCTIONS 								***
-*** 																		***
-******************************************************************************/
-/******************************************************************************
-*** 																		***
-*** 							EOF   										***
-*** 																		***
-******************************************************************************/  
