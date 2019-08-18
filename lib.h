@@ -22,9 +22,9 @@ Description :
 #ifndef _LIB_H
 #define _LIB_H
 /*****************************************************************************
-*** 																	   ***
-*** 						MODULES USED    							   ***
-*** 																       ***
+***                                                                        ***
+***                               MODULES USED                             ***
+***                                                                        ***
 *****************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,18 +33,18 @@ Description :
 #include <math.h>
 #include <windows.h>
 /*****************************************************************************
-***  																	   ***
-*** 						DEFINITIONS AND MACROS 						   ***
-*** 																	   ***
+***                                                                        ***
+***                             DEFINITIONS AND MACROS                     ***
+***                                                                        ***
 *****************************************************************************/
 #define PLAYER1 'X'
 #define PLAYER2 'O'
 #define row 10
 #define col 10
 /*****************************************************************************
-*** 																	   ***
-***                     	TYPEDEFS AND STRUCTURES 				       ***
-*** 																	   ***
+***                                                                        ***
+***                     	TYPEDEFS AND STRUCTURES                    ***
+***                                                                        ***
 *****************************************************************************/
  /**** C type extensions ****/
 typedef unsigned char   boolean;
@@ -59,20 +59,20 @@ typedef double          float64;
 /**** Struct 			****/
 struct Player
 {
-    char 			    name[20];
+    char                name[20];
     unsigned int 	win;
     unsigned int 	draw;
     unsigned int	lose;
-    float 			  rating;
+    float               rating;
 };
 typedef struct	Player player;
-extern 			    player p1;
+extern          player p1;
 extern struct 	Player *pt;
 extern struct 	Player *newPlayer;
 /*****************************************************************************
-*** 																	   ***
-***                         EXPORTED VARIABLES 							   ***
-*** 																	   ***
+***                                                                        ***
+***                         EXPORTED VARIABLES                             ***
+***                                                                        ***
 *****************************************************************************/
 extern uint8 	m_Stt;
 extern uint8 	m_Count;
