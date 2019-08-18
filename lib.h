@@ -2,16 +2,16 @@
                         **************************
 ***************************** C HEADER FILE *********************************
                         **************************
-** 	project 	: 											   			   **
-**	filename 	:										   				   **
-** 	version 	: 										   				   **
-** 	date 		: 												   		   **
-** 																		   **
+** 	project 	:                                                  **
+**	filename 	:                                                  **
+** 	version 	:						   **
+** 	date 		:						   **
+**									   **
 *****************************************************************************
-**    																	   **
-** 	Copyright (c)  									   					   **
-** 	All rights reserved. 					  		                       **
-**    																	   **
+**									   **
+** 	Copyright (c)							   **
+** 	All rights reserved.						   **
+**									   **
 *****************************************************************************
 VERSION HISTORY:
 Version 	:
@@ -86,9 +86,9 @@ extern uint16 	m_oldPerson;
 #ifndef _LIB_C
 #endif
 /*****************************************************************************
-***    																	   ***
-*** 						EXPORTED FUNCTIONS 							   ***
-*** 																	   ***
+***									   ***
+***				EXPORTED FUNCTIONS 			   ***
+***									   ***
 *****************************************************************************/
 void 	inputData(struct Player **p,struct Player *player1,uint8 *win,uint8 *arr[],uint8 *pointcheck);
 void 	checkEmpty(uint8 x);
@@ -106,7 +106,7 @@ void    printHistory(struct Player *p);
 void	replayGames(uint8 *rp,struct Player *player,uint8 *a[],uint8 *win);
 #endif
 /*****************************************************************************
-*** 																	   ***
-*** 								EOF	                 	   			   ***
-***    																	   ***
+***									   ***
+***					EOF				   ***
+***									   ***
 *****************************************************************************/
