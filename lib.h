@@ -59,14 +59,14 @@ typedef double          float64;
 /**** Struct 			****/
 struct Player
 {
-    char 			name[20];
+    char 			    name[20];
     unsigned int 	win;
     unsigned int 	draw;
     unsigned int	lose;
-    float 			rating;
+    float 			  rating;
 };
 typedef struct	Player player;
-extern 			player p1;
+extern 			    player p1;
 extern struct 	Player *pt;
 extern struct 	Player *newPlayer;
 /*****************************************************************************
