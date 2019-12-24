@@ -1,18 +1,18 @@
 /*
                             **********************
 ******************************* C SOURCE FILE ********************************
-** 							********************** 							                        **
-** 																			                                    **
-** project : Caro Games														                          **
-** filename : lib.c															                            **
-** version : 1.1 															                              **
-** date : July 10, 2019														                          **
-**    																		                                  **
+**                          **********************                          **
+**                                                                          **
+** project : Caro Games                                                     **
+** filename : lib.c                                                         **
+** version : 1.1                                                            **
+** date : July 10, 2019                                                     **
+**                                                                          **
 ******************************************************************************
-** 																			                                    **
-** Copyright (c) 2019				 										                            **
-** All rights reserved. 													                          **
-** 																			                                    **
+**                                                                          **
+** Copyright (c) 2019                                                       **
+** All rights reserved.                                                     **
+**                                                                          **
 ******************************************************************************
 VERSION HISTORY:
 ----------------
@@ -23,40 +23,40 @@ Description : Original version.
                                                                              */
 #define _LIB_C
 /******************************************************************************
-*** 																		                                    ***
-*** 						            MODULES USED 									                  ***
-*** 																		                                    ***
+***                                                                         ***
+***                                     MODULES USED                        ***
+***                                                                         ***
 ******************************************************************************/
 #include "../Play_no_tcpip/lib/lib.h"
 /******************************************************************************
-*** 																		                                    ***
-*** 						                 DEFINITIONS AND MACROS        							***
-*** 																		                                    ***
+***                                                                         ***
+***                         DEFINITIONS AND MACROS                          ***
+***                                                                         ***
 ******************************************************************************/
 /******************************************************************************
-*** 																		                                    ***
-*** 						                TYPEDEFS AND STRUCTURES 						        ***
-***    																		                                  ***
+***                                                                         ***
+***                         TYPEDEFS AND STRUCTURES                         ***
+***                                                                         ***
 ******************************************************************************/
 /******************************************************************************
-*** 																		                                    ***
-***    						               PROTOTYPES OF LOCAL FUNCTIONS 			        ***
-*** 																		                                    ***
+***                                                                         ***
+***                         PROTOTYPES OF LOCAL FUNCTIONS                   ***
+***                                                                         ***
 ******************************************************************************/
 /******************************************************************************
-*** 																		                                    ***
-*** 						                  EXPORTED VARIABLES 								        ***
-***    																		                                  ***
+***                                                                         ***
+***                         EXPORTED VARIABLES                              ***
+***                                                                         ***
 ******************************************************************************/
 /******************************************************************************
-***    																		                                  ***
-*** 						                GLOBAL VARIABLES 								            ***
-*** 																		                                    ***
+***                                                                         ***
+***                         GLOBAL VARIABLES                                ***
+***                                                                         ***
 ******************************************************************************/
 /******************************************************************************
-*** 																		                                    ***
-*** 						               EXPORTED FUNCTIONS 								          ***
-***    																		                                  ***
+***                                                                         ***
+***                         EXPORTED FUNCTIONS                              ***
+***                                                                         ***
 ******************************************************************************/
 /* Xoa mang du lieu choi
  * Tham so:--------------------------------------------------------------------
@@ -104,24 +104,26 @@ void    checkOldplayer(struct Player **p,struct Player *newplayer)
         if(strcmp((*p+i)->name,newplayer->name)==0)
         {
             printf("%s la nguoi choi cu!\n",newplayer->name);
-            printf("Thang %d tran, hoa %d tran, thua %d tran, ti le %.3f\n",(*p+i)->win,(*p+i)->draw,(*p+i)->lose,(double)(*p+i)->rating);
-            newplayer->win		=	(*p+i)->win;
-            newplayer->draw	=	(*p+i)->draw;
-            newplayer->lose	=	(*p+i)->lose;
-            newplayer->rating	=	(*p+i)->rating;
-            m_Pl1=1;	// flag
+            printf("Thang %d tran, hoa %d tran, thua %d tran, ti le %.3f\n",(*p+i)->win,\
+                   (*p+i)->draw,(*p+i)->lose,(double)(*p+i)->rating);
+            newplayer->win        =    (*p+i)->win;
+            newplayer->draw    =    (*p+i)->draw;
+            newplayer->lose    =    (*p+i)->lose;
+            newplayer->rating    =    (*p+i)->rating;
+            m_Pl1=1;    // flag
             m_Add1=i; //vi tri nguoi choi cu
         }
         if(strcmp((*p+i)->name,(newplayer+1)->name)==0)
         {
             printf("%s la nguoi choi cu!\n",(newplayer+1)->name);
-            printf("Thang %d tran, hoa %d tran, thua %d tran, ti le %.3f\n",(*p+i)->win,(*p+i)->draw,(*p+i)->lose,(double)(*p+i)->rating);
-            m_Pl2=1;	//flag
-            (newplayer+1)->win		=	(*p+i)->win;
-            (newplayer+1)->draw	=	(*p+i)->draw;
-            (newplayer+1)->lose	=	(*p+i)->lose;
-            (newplayer+1)->rating	=	(*p+i)->rating;
-            m_Add2=i;	//vi tri nguoi choi cu
+            printf("Thang %d tran, hoa %d tran, thua %d tran, ti le %.3f\n",(*p+i)->win,\
+                   (*p+i)->draw,(*p+i)->lose,(double)(*p+i)->rating);
+            m_Pl2=1;    //flag
+            (newplayer+1)->win        =    (*p+i)->win;
+            (newplayer+1)->draw    =    (*p+i)->draw;
+            (newplayer+1)->lose    =    (*p+i)->lose;
+            (newplayer+1)->rating    =    (*p+i)->rating;
+            m_Add2=i;    //vi tri nguoi choi cu
         }
     }
 }
@@ -146,7 +148,7 @@ void playGames(uint8 *rowcheck,uint8 *colcheck,uint8 *dataarr[],uint8 *pointchec
         while( (*rowcheck>=row ) || (*colcheck>=col ) || *(dataarr[*rowcheck]+*colcheck)!=0);
         if(*(dataarr[*rowcheck]+*colcheck)==0)
         {
-         *(dataarr[*rowcheck]+*colcheck)	=	PLAYER1;
+         *(dataarr[*rowcheck]+*colcheck)    =    PLAYER1;
          *(pointcheck+m_Count) = (uint8)(((*rowcheck)<<4) | *colcheck);
          m_Count++;
         }
@@ -162,12 +164,12 @@ void playGames(uint8 *rowcheck,uint8 *colcheck,uint8 *dataarr[],uint8 *pointchec
         while( (*rowcheck>=row) || (*colcheck>=col) || *(dataarr[*rowcheck]+*colcheck)!=0);
         if(*(dataarr[*rowcheck]+*colcheck)==0)
         {
-         *(dataarr[*rowcheck]+*colcheck)	=	PLAYER2;
+         *(dataarr[*rowcheck]+*colcheck)    =    PLAYER2;
          *(pointcheck+m_Count) = (uint8)(((*rowcheck)<<4) | *colcheck);
          m_Count++;
         }
     }
-    m_Stt	=	!m_Stt;
+    m_Stt    =    !m_Stt;
 }
 /* Hien thi ban co */
 void displayBoard(struct Player *player,uint8 *a[])
@@ -189,7 +191,8 @@ void displayBoard(struct Player *player,uint8 *a[])
         printf("\n");
     }
 }
-/* Kiem tra dieu kien thang/thua cua tung nguoi, neu di het ban co ma khong ai thang se tra ket qua ve hoa
+/* Kiem tra dieu kien thang/thua cua tung nguoi, neu di het ban co ma
+ * khong ai thang se tra ket qua ve hoa
  * a[]: mang luu vi tri danh
  * r,c: du lieu hang/cot vua danh
  * ham tra ve 1 neu nguoi choi mot thang, tra ve -1 neu nguoi choi hai thang
@@ -197,26 +200,26 @@ void displayBoard(struct Player *player,uint8 *a[])
 int checkWin(uint8 *a[],unsigned short int r,unsigned short int c)
 {
     unsigned short int i=r,j=c,Count1=0,Count2=0,Count3=0,Count4=0;
-    if(j<(col-1))	// Kiem tra hang
-    while(*(a[i]+j)==*(a[i]+j+1)    &&	*(a[i]+j)!=0)
+    if(j<(col-1))    // Kiem tra hang
+    while(*(a[i]+j)==*(a[i]+j+1)    &&    *(a[i]+j)!=0)
     {
         Count1++;
         j++;
         if(j==(col-1))
             break;
     }
-    i=r;	j=c;
-    while(*(a[i]+j)==*(a[i]+j-1)	&&	*(a[i]+j)!=0)
+    i=r;    j=c;
+    while(*(a[i]+j)==*(a[i]+j-1)    &&    *(a[i]+j)!=0)
     {
         Count1++;
         j--;
         if(j==0)
             break;
     }
-    i=r;	j=c;	Count2=0; 	// Kiem tra cot
+    i=r;    j=c;    Count2=0;     // Kiem tra cot
     if(i<(row-1))
     {
-        while(*(a[i]+j)==*(a[i+1]+j) &&	*(a[i]+j)!=0)
+        while(*(a[i]+j)==*(a[i+1]+j) &&    *(a[i]+j)!=0)
         {
             Count2++;
             i++;
@@ -224,10 +227,10 @@ int checkWin(uint8 *a[],unsigned short int r,unsigned short int c)
                 break;
         }
     }
-    i=r;	j=c;
+    i=r;    j=c;
     if(i>0)
     {
-        while(*(a[i]+j)==*(a[i-1]+j) &&	*(a[i]+j)!=0)
+        while(*(a[i]+j)==*(a[i-1]+j) &&    *(a[i]+j)!=0)
         {
             Count2++;
             i--;
@@ -235,10 +238,10 @@ int checkWin(uint8 *a[],unsigned short int r,unsigned short int c)
                 break;
         }
     }
-    i=r;	j=c;	Count3=0; 	//	Kiem tra hang cheo
+    i=r;    j=c;    Count3=0;     //    Kiem tra hang cheo
     if(i<(row-1) && j<(col-1))
     {
-        while(*(a[i]+j)==*(a[i+1]+j+1)	&&	*(a[i]+j)!=0)
+        while(*(a[i]+j)==*(a[i+1]+j+1)    &&    *(a[i]+j)!=0)
         {
             Count3++;
             i++;
@@ -247,10 +250,10 @@ int checkWin(uint8 *a[],unsigned short int r,unsigned short int c)
                 break;
         }
     }
-    i=r;	j=c;
+    i=r;    j=c;
     if(i>0 && j>0)
     {
-        while(*(a[i]+j)==*(a[i-1]+j-1)	&&	*(a[i]+j)!=0)
+        while(*(a[i]+j)==*(a[i-1]+j-1)    &&    *(a[i]+j)!=0)
         {
             Count3++;
             i--;
@@ -259,10 +262,10 @@ int checkWin(uint8 *a[],unsigned short int r,unsigned short int c)
                 break;
         }
     }
-    i=r;	j=c;	Count4=0;
+    i=r;    j=c;    Count4=0;
     if(i<(row-1) && j<(col-1)&&i>0&&j>0)
     {
-        while(*(a[i]+j)==*(a[i-1]+j+1)	&&	*(a[i]+j)!=0)
+        while(*(a[i]+j)==*(a[i-1]+j+1)    &&    *(a[i]+j)!=0)
         {
             Count4++;
             i--;
@@ -271,10 +274,10 @@ int checkWin(uint8 *a[],unsigned short int r,unsigned short int c)
                 break;
         }
     }
-    i=r;	j=c;
+    i=r;    j=c;
     if(i>0 && j>0 && i<(row-1) && j<(col-1))
     {
-        while(*(a[i]+j)==*(a[i+1]+j-1)	&&	*(a[i]+j)!=0)
+        while(*(a[i]+j)==*(a[i+1]+j-1)    &&    *(a[i]+j)!=0)
         {
             Count4++;
             i++;
@@ -316,21 +319,21 @@ void inputData(struct Player **p,struct Player *player1,uint8 *win,uint8 *arr[],
     rowcheck=(unsigned char*)calloc(1,sizeof(unsigned char));
     colcheck=(unsigned char*)calloc(1,sizeof(unsigned char));
     m_totalPerson=0;
-    if(m_Pl1 ==	0)     // *player luu gia struct hai nguoi choi da duoc cap nhat
+    if(m_Pl1 ==    0)     // *player luu gia struct hai nguoi choi da duoc cap nhat
     {
         m_totalPerson++;
-        player1->win		=	0;
-        player1->draw		=	0;
-        player1->lose		=	0;
-        player1->rating		=	0.0;
+        player1->win         =    0;
+        player1->draw        =    0;
+        player1->lose        =    0;
+        player1->rating      =    0.0;
     }
-    if(m_Pl2 ==	0)
+    if(m_Pl2 ==    0)
     {
         m_totalPerson++;
-        (player1+1)->win	=	0;
-        (player1+1)->draw	=	0;
-        (player1+1)->lose	=	0;
-        (player1+1)->rating	=	0.0;
+        (player1+1)->win   =    0;
+        (player1+1)->draw  =    0;
+        (player1+1)->lose  =    0;
+        (player1+1)->rating=    0.0;
     }
     realloc(*p,sizeof(struct Player)*(m_oldPerson+m_totalPerson));
     while(1)
@@ -340,25 +343,25 @@ void inputData(struct Player **p,struct Player *player1,uint8 *win,uint8 *arr[],
         if(checkWin(arr,*rowcheck,*colcheck)==1)
         {
             printf("%s win!\n",player1->name);
-            player1->win		+=	1;
-            (player1+1)->lose	+=	1;
-            *win				=	1;
+            player1->win       +=    1;
+            (player1+1)->lose  +=    1;
+            *win                =    1;
             break;
         }
         if(checkWin(arr,*rowcheck,*colcheck)==-1)
         {
             printf("%s win!\n",(player1+1)->name);
-            (player1+1)->win	+=	1;
-            player1->lose		+=	1;
-            *win				=	2;
+            (player1+1)->win   +=    1;
+            player1->lose      +=    1;
+            *win                =    2;
             break;
         }
         if(checkDraw()==1)
         {
             printf("Draw!\n");
-            player1->draw		+=	1;
-            (player1+1)->draw	+=	1;
-            *win				=	0;
+            player1->draw        +=    1;
+            (player1+1)->draw    +=    1;
+            *win                  =    0;
             break;
         }
         playGames(rowcheck,colcheck,m_Data,pointcheck);
@@ -367,25 +370,25 @@ void inputData(struct Player **p,struct Player *player1,uint8 *win,uint8 *arr[],
 /* Hien thi thong tin nhung nguoi choi co ti le thang gan nhau */
 void infoSamePoint(struct Player *newplayer,uint8 *win)
 {
-    FILE 	*fp;
-    float32	*f=NULL;
-    struct 	Player	*p;
-    uint8 	i=0,j=0;
-    float64	min; // Gia tri nho nhat cua hieu so ti le cua nguoi thang voi cac nguoi choi con lai
-    uint8 	add = 0;
+    FILE       *fp;
+    float32    *f=NULL;
+    struct     Player *p;
+    uint8      i=0,j=0;
+    float64    min; // Gia tri nho nhat cua hieu so ti le cua nguoi thang voi cac nguoi choi con lai
+    uint8      add = 0;
     if(newplayer==NULL || win==NULL)
     {
         return;
     }
     else
     {
-        f	=	(float32 *)calloc((m_oldPerson+m_totalPerson),sizeof(float32));
-        p	=	(struct Player *)calloc((m_totalPerson+m_oldPerson),sizeof(struct Player));
+        f  =  (float32 *)calloc((m_oldPerson+m_totalPerson),sizeof(float32));
+        p  =  (struct Player *)calloc((m_totalPerson+m_oldPerson),sizeof(struct Player));
         if(f==NULL || p==NULL)
         {
             return;
         }
-        fp	=	fopen("info.ini","rb");
+        fp  =  fopen("info.ini","rb");
         if(fp==NULL)
         {
             printf("File can not open!\n");
@@ -398,31 +401,33 @@ void infoSamePoint(struct Player *newplayer,uint8 *win)
             if(*win == 1)
             {
                 if(strcmp(newplayer->name,(p+i)->name)==0) // so sanh ten nguoi choi thang
-                    add	=	i;
+                    add  =  i;
             }
             else if(*win == 2)
             {
                 if(strcmp((newplayer+1)->name,(p+i)->name)==0)
-                    add	=	i;
+                    add  =  i;
             }
         }
         min = 2.0;
         for(i=0; i<(m_oldPerson+m_totalPerson); i++)
         {
             float64 temp;
-            temp	=	fabs((float64)((p+add)->rating) - (float64)((p+i)->rating));
-            if(i	==	add)
+            temp    =    fabs((float64)((p+add)->rating) - (float64)((p+i)->rating));
+            if(i    ==   add)
                 continue;
             else if(temp <= min)
-                min	 = fabs((float64)((p+add)->rating) - (float64)((p+i)->rating));
+                min  = fabs((float64)((p+add)->rating) - (float64)((p+i)->rating));
         }
         printf("Nhung nguoi choi gan trinh do nhat la:\n");
         for(i=0; i<(m_oldPerson+m_totalPerson); i++)
         {
-            if(	(i != add) && (min == (fabs((float64)((p+add)->rating) - (float64)((p+i)->rating)))	))
+            if((i != add) && (min == (fabs((float64)((p+add)->rating) - 
+                                 (float64)((p+i)->rating)))))
             {
                 printf("%20s\t",(p+i)->name);
-                printf("thang %4d\t hoa %4d\t thua %4d\t voi ti le thang %4.3f\n",(p+i)->win,(p+i)->draw,(p+i)->lose,(double)(p+i)->rating);
+                printf("thang %4d\t hoa %4d\t thua %4d\t voi ti le thang %4.3f\n",\
+                          (p+i)->win,(p+i)->draw,(p+i)->lose,(double)(p+i)->rating);
                 *(f+j)=(p+i)->rating; //Mang du lieu nhung nguoi cung ti le thang
                 j++;
             }
@@ -435,20 +440,20 @@ void infoSamePoint(struct Player *newplayer,uint8 *win)
 void checkTotalPerson(void)
 {
     FILE *f;
-    int16 	num;
-    f 	= 	fopen("info.ini","rb");
+    int16   num;
+    f   =   fopen("info.ini","rb");
     if(f==NULL)
     {
         printf("File does not exist!!\n");
-        m_totalPerson	=	0;
-        m_oldPerson     =	0;
+        m_totalPerson   = 0;
+        m_oldPerson     = 0;
         return;
     }
     else
     {
         fseek(f, 0, SEEK_END);
-        num		=	ftell(f);
-        m_oldPerson	=	(uint8)num/(sizeof(struct Player));
+        num         =  ftell(f);
+        m_oldPerson =  (uint8)num/(sizeof(struct Player));
     }
     fclose(f);
 }
@@ -459,7 +464,8 @@ void printHistory(struct Player *p)
     printf("History!\n");
     for(i=0;i<(m_oldPerson+m_totalPerson);i++)
     {
-        printf("%20s Win: %4d Draw: %4d Lose: %4d Rating: %4.3f\n",(p+i)->name,(p+i)->win,(p+i)->draw,(p+i)->lose,(double)(p+i)->rating);
+        printf("%20s Win: %4d Draw: %4d Lose: %4d Rating: %4.3f\n",
+               (p+i)->name,(p+i)->win,(p+i)->draw,(p+i)->lose,(double)(p+i)->rating);
     }
 }
 /* Ham replay lan choi gan nhat
@@ -512,12 +518,12 @@ void replayGames(uint8 *rp,struct Player *player,uint8 *a[],uint8 *win)
     system("pause");
 }
 /******************************************************************************
-***    																		                                  ***
-*** 						                      LOCAL FUNCTIONS 								      ***
-*** 																		                                    ***
+***                                                                         ***
+***                             LOCAL FUNCTIONS                             ***
+***                                                                         ***
 ******************************************************************************/
 /******************************************************************************
-*** 																		                                    ***
-*** 							                      EOF   										          ***
-*** 																		                                    ***
+***                                                                         ***
+***                                  EOF                                    ***
+***                                                                         ***
 ******************************************************************************/
