@@ -1,18 +1,18 @@
 /*
                             **********************
 ******************************* C SOURCE FILE ********************************
-** 							**********************                                      **
-** 																			                                    **
-** project : Caro Games														                          **
-** filename : file_manager.c												                        **
-** version : 1.1 															                              **
-** date : July 10, 2019														                          **
-**    																		                                  **
+**                          **********************                          **
+**                                                                          **
+** project : Caro Games                                                     **
+** filename : file_manager.c                                                **
+** version : 1.1                                                            **
+** date : July 10, 2019                                                     **
+**                                                                          **
 ******************************************************************************
-** 																			**
-** Copyright (c) 2019				 										**
-** All rights reserved. 													**
-** 																			**
+**                                                                          **
+** Copyright (c) 2019                                                       **
+** All rights reserved.                                                     **
+**                                                                          **
 ******************************************************************************
 VERSION HISTORY:
 ----------------
@@ -23,42 +23,43 @@ Description : Original version.                                             */
 #define _FILE_MANAGER_SRC_
 /******************************************************************************
 ***                                                                         ***
-*** 						MODULES USED 									***
-*** 																		***
+***                         MODULES USED                                    ***
+***                                                                         ***
 ******************************************************************************/
 #include "../Play/file_manager/file_manager.h"
 /******************************************************************************
-*** 																		***
-*** 						DEFINITIONS AND MACROS 							***
-*** 																		***
+***                                                                         ***
+***                         DEFINITIONS AND MACROS                          ***
+***                                                                         ***
 ******************************************************************************/
 /******************************************************************************
-*** 																		***
-*** 						TYPEDEFS AND STRUCTURES 						***
-***    																		***
+***                                                                         ***
+***                         TYPEDEFS AND STRUCTURES                         ***
+***                                                                         ***
 ******************************************************************************/
 /******************************************************************************
-*** 																		***
-***    						PROTOTYPES OF LOCAL FUNCTIONS 					***
-*** 																		***
+***                                                                         ***
+***                         PROTOTYPES OF LOCAL FUNCTIONS                   ***
+***                                                                         ***
 ******************************************************************************/
 /******************************************************************************
-*** 																		***
-*** 						EXPORTED VARIABLES 								***
-***    																		***
+***                                                                         ***
+***                         EXPORTED VARIABLES                              ***
+***                                                                         ***
 ******************************************************************************/
 /******************************************************************************
-***    																		***
-*** 						GLOBAL VARIABLES 								***
-*** 																		***
+***                                                                         ***
+***                         GLOBAL VARIABLES                                ***
+***                                                                         ***
 ******************************************************************************/
 /******************************************************************************
-*** 																		***
-*** 						EXPORTED FUNCTIONS 								***
-***    																		***
+***                                                                         ***
+***                         EXPORTED FUNCTIONS                              ***
+***                                                                         ***
 *******************************************************************************/
-/* Kiem tra du lieu nguoi choi cu/moi, sau do ghi du lieu tu mang nguoi choi hien tai
- * sang mang luu toan bo nguoi choi, sau do thuc hien ghi vao file, ket thuc chuong trinh */
+/* Kiem tra du lieu nguoi choi cu/moi, sau do ghi du lieu tu mang nguoi choi
+ *  hien tai sang mang luu toan bo nguoi choi, sau do thuc hien ghi vao file,
+ * ket thuc chuong trinh */
 void writeData(struct Player *p,struct Player *pl)
 {
     FILE *fp;
@@ -68,49 +69,54 @@ void writeData(struct Player *p,struct Player *pl)
     }
     if(m_Pl1==1)    // neu nguoi choi 1 la nguoi choi cu
     {
-        (p+m_Add1)->win     =	pl->win;
-        (p+m_Add1)->draw	=	pl->draw;
-        (p+m_Add1)->lose	=	pl->lose;
-        (p+m_Add1)->rating  =	(float)pl->win/(pl->win+pl->draw+pl->lose);
+        (p+m_Add1)->win     =   pl->win;
+        (p+m_Add1)->draw    =   pl->draw;
+        (p+m_Add1)->lose    =   pl->lose;
+        (p+m_Add1)->rating  =   (float)pl->win/(pl->win+pl->draw+pl->lose);
     }
     if(m_Pl2==1)    // neu nguoi choi 2 la nguoi choi cu
     {
-        (p+m_Add2)->win     =	(pl+1)->win;
-        (p+m_Add2)->draw	=	(pl+1)->draw;
-        (p+m_Add2)->lose	=	(pl+1)->lose;
-        (p+m_Add2)->rating  =	(float)(pl+1)->win/((pl+1)->win+(pl+1)->draw+(pl+1)->lose);
+        (p+m_Add2)->win     =   (pl+1)->win;
+        (p+m_Add2)->draw    =   (pl+1)->draw;
+        (p+m_Add2)->lose    =   (pl+1)->lose;
+        (p+m_Add2)->rating  =   (float)(pl+1)->win/((pl+1)->win+(pl+1)->draw +\
+                                    (pl+1)->lose);
     }
     if(m_Pl1==0 && m_Pl2==0)    // neu hai nguoi choi la nguoi choi moi
     {
         strcpy((p+m_oldPerson)->name,pl->name);
-        (p+m_oldPerson)->win	=	pl->win;
-        (p+m_oldPerson)->draw	=	pl->draw;
-        (p+m_oldPerson)->lose	=	pl->lose;
-        (p+m_oldPerson)->rating =	(float)pl->win/(pl->win+pl->draw+pl->lose);
+        (p+m_oldPerson)->win    =   pl->win;
+        (p+m_oldPerson)->draw   =   pl->draw;
+        (p+m_oldPerson)->lose   =   pl->lose;
+        (p+m_oldPerson)->rating =   (float)pl->win/(pl->win+pl->draw +\
+                                        pl->lose);
 
         strcpy((p+m_oldPerson+1)->name,(pl+1)->name);
-        (p+m_oldPerson+1)->win		=	(pl+1)->win;
-        (p+m_oldPerson+1)->draw		=	(pl+1)->draw;
-        (p+m_oldPerson+1)->lose		=	(pl+1)->lose;
-        (p+m_oldPerson+1)->rating 	=	(float)(pl+1)->win/((pl+1)->win+(pl+1)->draw+(pl+1)->lose);
+        (p+m_oldPerson+1)->win      =   (pl+1)->win;
+        (p+m_oldPerson+1)->draw     =   (pl+1)->draw;
+        (p+m_oldPerson+1)->lose     =   (pl+1)->lose;
+        (p+m_oldPerson+1)->rating   =   (float)(pl+1)->win/((pl+1)->win +\
+                                            (pl+1)->draw+(pl+1)->lose);
     }
     else
     {   // neu chi co mot nguoi choi moi
         if(m_Pl1==0 && m_Pl2==1)
         {
             strcpy((p+m_oldPerson)->name,pl->name);
-            (p+m_oldPerson)->win	=	pl->win;
-            (p+m_oldPerson)->draw	=	pl->draw;
-            (p+m_oldPerson)->lose	=	pl->lose;
-            (p+m_oldPerson)->rating =	(float)pl->win/(pl->win+pl->draw+pl->lose);
+            (p+m_oldPerson)->win    =   pl->win;
+            (p+m_oldPerson)->draw   =   pl->draw;
+            (p+m_oldPerson)->lose   =   pl->lose;
+            (p+m_oldPerson)->rating =   (float)pl->win/(pl->win+pl->draw +\
+                                            pl->lose);
         }
         else if(m_Pl1==1 && m_Pl2==0)
         {
             strcpy((p+m_oldPerson)->name,(pl+1)->name);
-            (p+m_oldPerson)->win	=	(pl+1)->win;
-            (p+m_oldPerson)->draw	=	(pl+1)->draw;
-            (p+m_oldPerson)->lose	=	(pl+1)->lose;
-            (p+m_oldPerson)->rating =	(float)(pl+1)->win/((pl+1)->win+(pl+1)->draw+(pl+1)->lose);
+            (p+m_oldPerson)->win    =   (pl+1)->win;
+            (p+m_oldPerson)->draw   =   (pl+1)->draw;
+            (p+m_oldPerson)->lose   =   (pl+1)->lose;
+            (p+m_oldPerson)->rating =   (float)(pl+1)->win/((pl+1)->win +\
+                                            (pl+1)->draw+(pl+1)->lose);
         }
     }
     fp=fopen("info.ini","wb");
@@ -125,12 +131,14 @@ void writeData(struct Player *p,struct Player *pl)
     }
     fclose(fp);
 }
-/* Ham nhap ten va kiem tra nguoi choi cu, sau do tien hanh tai du lieu nguoi choi cu vao vi tri tuong ung
- * trong con tro struct Player vao du lieu nguoi choi hien tai */
-void getInfo(struct Player **p,struct Player *player,uint8 *win,uint8 *data[],uint8 *pp)
+/* Ham nhap ten va kiem tra nguoi choi cu, sau do tien hanh tai du lieu
+ * nguoi choi cu vao vi tri tuong ung trong con tro struct Player vao du
+ * lieu nguoi choi hien tai */
+void getInfo(struct Player **p,struct Player *player,uint8 *win,\
+       uint8 *data[],uint8 *pp)
 {
     FILE *f;
-    m_Pl1	=0; m_Pl2=0; m_Stt=0;    m_Count=0;
+    m_Pl1   =0; m_Pl2=0; m_Stt=0;    m_Count=0;
     eraseData(data); //xoa mang du lieu
     f=fopen("info.ini","rb+");
     if(p==NULL || player==NULL)
@@ -139,9 +147,9 @@ void getInfo(struct Player **p,struct Player *player,uint8 *win,uint8 *data[],ui
     {
         printf("No data!\n");
         m_oldPerson     =0;
-        m_totalPerson	=0;
+        m_totalPerson   =0;
     }
-    checkTotalPerson();	// Lay so nguoi choi hien tai trong file ini
+    checkTotalPerson(); // Lay so nguoi choi hien tai trong file ini
     // nhap ten hai nguoi choi
     printf("Player 1 name: ");
     gets(player->name);
@@ -158,22 +166,13 @@ void getInfo(struct Player **p,struct Player *player,uint8 *win,uint8 *data[],ui
     writeData(*p,player);
 }
 /******************************************************************************
-***    																		***
-*** 						LOCAL FUNCTIONS 								***
-*** 																		***
+***                                                                         ***
+***                             LOCAL FUNCTIONS                             ***
+***                                                                         ***
 ******************************************************************************/
 /******************************************************************************
-*** 																		***
-***                             EOF   										***
-*** 																		***
+***                                                                         ***
+***                             EOF                                         ***
+***                                                                         ***
 ******************************************************************************/
-/******************************************************************************
-***    																		***
-*** 						LOCAL FUNCTIONS 								***
-*** 																		***
-******************************************************************************/
-/******************************************************************************
-*** 																		***
-*** 							EOF   										***
-*** 																		***
-******************************************************************************/
+
