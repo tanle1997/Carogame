@@ -10,13 +10,12 @@ SOURCES_FILE+=  file_manager.c \
 				main.c
 all: caroGames
 main.o: main.c
-	${CC} -c main.c
+	${CC} ${COMPILER_FLAGS} -c main.c ${CFLAGS}
 lib.o: lib.h lib.c
-	${CC} -c lib.c
+	${CC} ${COMPILER_FLAGS} -c lib.c ${CFLAGS}
 file_manager.o: file_manager.h lib.h lib.c file_manager.c
-	${CC} -c lib.c file_manager.c
-caroGames:
-	${CC} ${COMPILER_FLAGS} -c $(SOURCES_FILE) ${CFLAGS}
+	${CC} ${COMPILER_FLAGS} -c lib.c file_manager.c ${CFLAGS}
+caroGames: main.o lib.o file_manager.o
 	${CC} ${COMPILER_FLAGS} -o $@ ${patsubst %.c, %.o, $(SOURCES_FILE)} ${CFLAGS}
 	@./$@.exe
 clean:
