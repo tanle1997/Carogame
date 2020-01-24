@@ -49,9 +49,9 @@ Description :
 ***                        EXPORTED FUNCTIONS                              ***
 ***                                                                        ***
 *****************************************************************************/
-void    writeData(struct Player *p,struct Player *pl);
-void    getInfo(struct Player **p,struct Player *player,uint8 *win,\
-            uint8 *data[],uint8 *pp);
+void writeData(struct Player *p, struct Player *pl);
+void getInfo(struct Player **p, struct Player *player, uint8 *win, \
+  uint8 *data[], uint8 *pp);
 #endif
 /*****************************************************************************
 ***                                                                        ***
