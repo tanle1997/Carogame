@@ -26,7 +26,7 @@ Description : Original version.                                             */
 ***                         MODULES USED                                    ***
 ***                                                                         ***
 ******************************************************************************/
-#include "../Play/file_manager/file_manager.h"
+#include "file_manager.h"
 /******************************************************************************
 ***                                                                         ***
 ***                         DEFINITIONS AND MACROS                          ***
@@ -60,9 +60,10 @@ Description : Original version.                                             */
 /* Kiem tra du lieu nguoi choi cu/moi, sau do ghi du lieu tu mang nguoi choi
  *  hien tai sang mang luu toan bo nguoi choi, sau do thuc hien ghi vao file,
  * ket thuc chuong trinh */
-void writeData(struct Player *p,struct Player *pl)
+void writeData(struct Player *p, struct Player *pl)
 {
   FILE *fp;
+
   if((NULL == p) || (NULL == pl))
   {
     return;
@@ -85,10 +86,10 @@ void writeData(struct Player *p,struct Player *pl)
   if((0 == m_Pl1) && (0 == m_Pl2))    // neu hai nguoi choi la nguoi choi moi
   {
     strcpy((p + m_oldPerson)->name, pl->name);
-    (p + m_oldPerson)->win    =   pl->win;
-    (p + m_oldPerson)->draw   =   pl->draw;
-    (p + m_oldPerson)->lose   =   pl->lose;
-    (p + m_oldPerson)->rating =   (float)pl->win/(pl->win + pl->draw + \
+    (p + m_oldPerson)->win    = pl->win;
+    (p + m_oldPerson)->draw   = pl->draw;
+    (p + m_oldPerson)->lose   = pl->lose;
+    (p + m_oldPerson)->rating = (float)pl->win/(pl->win + pl->draw + \
       pl->lose);
 
     strcpy((p + m_oldPerson + 1u)->name, (pl+1)->name);
@@ -123,6 +124,7 @@ void writeData(struct Player *p,struct Player *pl)
   if(NULL == fp)
   {
     printf("Can not open file!!\n");
+
     return;
   }
   else
@@ -179,4 +181,3 @@ void getInfo(struct Player **p, struct Player *player, uint8 *win, \
 ***                             EOF                                         ***
 ***                                                                         ***
 ******************************************************************************/
-

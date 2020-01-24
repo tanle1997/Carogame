@@ -27,7 +27,7 @@ Description : Original version.
 ***                                     MODULES USED                        ***
 ***                                                                         ***
 ******************************************************************************/
-#include "../Play_no_tcpip/lib/lib.h"
+#include "lib.h"
 /******************************************************************************
 ***                                                                         ***
 ***                         DEFINITIONS AND MACROS                          ***

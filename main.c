@@ -1,10 +1,10 @@
 // Library
 //#include "lib.h"
-#include "../Play/file_manager/file_manager.h"
+#include "file_manager.h"
 // Struct
 player p1;
 struct  Player *pt;
-struct  Player *newPlayer;
+struct  Player *newPlayerPtr;
 // Variables
 uint8  m_Stt   = 0;
 uint8  m_Count = 0;
@@ -18,19 +18,19 @@ uint8  *m_Data[row];
 // main
 int main()
 {   // khai bao cac bien va cap bo nho
-  uint8 i;
-  int   k;
-  uint8 *point = NULL;
-  uint8 *win;
+  uint8         i;
+  unsigned char selectedOption;
+  uint8         *point = NULL;
+  uint8         *win;
   /* Khoi tao gia tri */
-  m_Stt       = 0;
-  k           = 0;
-  m_Count     = 0;
-  pt          = (struct Player*)calloc(20, sizeof(struct Player));
-  win         = (uint8*)calloc(1, sizeof(uint8));
-  point       = (uint8*)calloc(100, sizeof(uint8));
-  *win        = 0;
-  newPlayer   =   (struct Player*)calloc(2, sizeof(struct Player));
+  m_Stt          = 0;
+  m_Count        = 0;
+  pt             = (struct Player*)calloc(20, sizeof(struct Player));
+  win            = (uint8*)calloc(1, sizeof(uint8));
+  point          = (uint8*)calloc(100, sizeof(uint8));
+  *win           = 0;
+  selectedOption = '\0';
+  newPlayerPtr   =   (struct Player*)calloc(2, sizeof(struct Player));
   for(i = 0; i < row; i++)
   {
     m_Data[i] = (uint8 *)calloc(col, sizeof(uint8));
@@ -41,7 +41,7 @@ int main()
       return 0;
     }
   }
-  if( (NULL ==pt) || (NULL == newPlayer) || (NULL == point)) // kiem tra da cap bo nho thanh cong hay chua
+  if( (NULL ==pt) || (NULL == newPlayerPtr) || (NULL == point)) // kiem tra da cap bo nho thanh cong hay chua
   {
     printf("Not enough memory!\n");
 
@@ -52,24 +52,24 @@ int main()
   {
     k=0;
     eraseArr(&point); // xoa mang du lieu choi
-    getInfo(&pt,newPlayer,win,m_Data,point); // goi ham lay thong tin va bat dau choi
+    getInfo(&pt,newPlayerPtr,win,m_Data,point); // goi ham lay thong tin va bat dau choi
     fflush(stdin); // xoa bo dem stdin va kiem tra ky tu tiep theo
     printf("Tiep tuc<1>\tKet thuc<2>\tReplay<3>\n");
-    k   = getch();
-    if('3' == k)
+    selectedOption = getch();
+    if('3' == selectedOption)
     {
-      replayGames(point, newPlayer, m_Data, win);
+      replayGames(point, newPlayerPtr, m_Data, win);
       break;
     }
-    if('2' == k)
+    if('2' == selectedOption)
     {
-      infoSamePoint(newPlayer, win);
+      infoSamePoint(newPlayerPtr, win);
       break;
     }
   }
-  while('1' == k);
+  while('1' == selectedOption);
   printHistory(pt);
-  free(newPlayer);    // free memory
+  free(newPlayerPtr);    // free memory
   free(win);
   free(point);
   free(pt);
