@@ -1,68 +1,67 @@
 /*
                             **********************
-******************************* C SOURCE FILE ********************************
-**                          **********************                          **
-**                                                                          **
-** project : Caro Games                                                     **
-** filename : lib.c                                                         **
-** version : 1.1                                                            **
-** date : July 10, 2019                                                     **
-**                                                                          **
-******************************************************************************
-**                                                                          **
-** Copyright (c) 2019                                                       **
-** All rights reserved.                                                     **
-**                                                                          **
-******************************************************************************
+******************************* C SOURCE FILE **********************************
+**                          **********************                            **
+**                                                                            **
+** project  : Caro Games                                                      **
+** filename : lib.c                                                           **
+** version  : 1.1                                                             **
+** date     : July 10, 2019                                                   **
+**                                                                            **
+********************************************************************************
+**                                                                            **
+** Copyright (c) 2019                                                         **
+** All rights reserved.                                                       **
+**                                                                            **
+********************************************************************************
 VERSION HISTORY:
 ----------------
-Version : 1.1
-Date :
-Revised by :
+Version     : 1.1
+Date        :
+Revised by  :
 Description : Original version.
-                                                                             */
-#define _LIB_C
-/******************************************************************************
-***                                                                         ***
-***                                     MODULES USED                        ***
-***                                                                         ***
-******************************************************************************/
+                                                                              */
+/*******************************************************************************
+**                                                                            **
+**                          MODULES USED                                      **
+**                                                                            **
+*******************************************************************************/
 #include "lib.h"
-/******************************************************************************
-***                                                                         ***
-***                         DEFINITIONS AND MACROS                          ***
-***                                                                         ***
-******************************************************************************/
-/******************************************************************************
-***                                                                         ***
-***                         TYPEDEFS AND STRUCTURES                         ***
-***                                                                         ***
-******************************************************************************/
-/******************************************************************************
-***                                                                         ***
-***                         PROTOTYPES OF LOCAL FUNCTIONS                   ***
-***                                                                         ***
-******************************************************************************/
-/******************************************************************************
-***                                                                         ***
-***                         EXPORTED VARIABLES                              ***
-***                                                                         ***
-******************************************************************************/
-/******************************************************************************
-***                                                                         ***
-***                         GLOBAL VARIABLES                                ***
-***                                                                         ***
-******************************************************************************/
-/******************************************************************************
-***                                                                         ***
-***                         EXPORTED FUNCTIONS                              ***
-***                                                                         ***
-******************************************************************************/
+/*******************************************************************************
+**                                                                            **
+**                          DEFINITIONS AND MACROS                            **
+**                                                                            **
+*******************************************************************************/
+/*******************************************************************************
+**                                                                            **
+**                          TYPEDEFS AND STRUCTURES                           **
+**                                                                            **
+*******************************************************************************/
+/*******************************************************************************
+**                                                                            **
+**                          PROTOTYPES OF LOCAL FUNCTIONS                     **
+**                                                                            **
+*******************************************************************************/
+/*******************************************************************************
+**                                                                            **
+**                          EXPORTED VARIABLES                                **
+**                                                                            **
+*******************************************************************************/
+/*******************************************************************************
+**                                                                            **
+**                          GLOBAL VARIABLES                                  **
+**                                                                            **
+*******************************************************************************/
+/*******************************************************************************
+**                                                                            **
+**                          EXPORTED FUNCTIONS                                **
+**                                                                            **
+*******************************************************************************/
 /* Xoa mang du lieu choi
  * Tham so:--------------------------------------------------------------------
  * arr[] la mang con tro tuong duong voi mang hai chieu
  * pointer dung de luu du lieu ban co trong luc hai nguoi dang choi
- * va hien thi ra man hinh vi tri choi tuong ung, xoa du lieu khi bat dau choi 
+ * va hien thi ra man hinh vi tri choi tuong ung, xoa du lieu khi bat dau choi
  * lai */
 void eraseData(uint8 *arr[])
 {
@@ -77,15 +76,16 @@ void eraseArr(uint8 **pointer)
   memset(*pointer, 0, sizeof(uint8) * row * col);
 }
 /* Hien thi ten hai nguoi choi hien tai
- * Tham so *player la struct pointer luu hai nguoi choi hien tai */
+ * Tham so *player la struct pointer luu hai nguoi choi hien tai
+ */
 void playerInfo(struct Player *player)
 {
-  printf("%s <%c> - %s <%c> \n", player->name, PLAYER1, (player + 1u)->name,
-    PLAYER2);
+  printf("%s <%c> - %s <%c> \n", player->name, PLAYER1, \
+    (player + 1u)->name, PLAYER2);
 }
 /* Hien thi cac nuoc co ma hai nguoi choi dang choi
  * x: vi tri trong mang m_Data chua du lieu vi tri danh de in ra man hinh
-*/
+ */
 void checkEmpty(uint8 x)
 {
   if(x == 0x00u)
@@ -121,13 +121,13 @@ void checkOldplayer(struct Player **p, struct Player *newplayer)
     {
       printf("%s la nguoi choi cu!\n", (newplayer + 1u)->name);
       printf("Thang %d tran, hoa %d tran, thua %d tran, ti le %.3f\n",\
-        (*p + i)->win, (*p + i)->draw, (*p + i)->lose,\
+        (*p + i)->win, (*p + i)->draw, (*p + i)->lose, \
         (double)(*p + i)->rating);
       m_Pl2 = 1u;    //flag
-      (newplayer + 1u)->win     = (*p + i)->win;
-      (newplayer + 1u)->draw    = (*p + i)->draw;
-      (newplayer + 1u)->lose    = (*p + i)->lose;
-      (newplayer + 1u)->rating  = (*p + i)->rating;
+      (newplayer + 1u)->win    = (*p + i)->win;
+      (newplayer + 1u)->draw   = (*p + i)->draw;
+      (newplayer + 1u)->lose   = (*p + i)->lose;
+      (newplayer + 1u)->rating = (*p + i)->rating;
       m_Add2 =i;    //vi tri nguoi choi cu
     }
   }
@@ -136,22 +136,24 @@ void checkOldplayer(struct Player **p, struct Player *newplayer)
  * luu lai vi tri hai nguoi choi tung danh de goi ham replayGames.
  * Cac tham so:-------------------------------------------------------
  * stt: Thu tu nguoi choi mot/hai
- * rowcheck,colcheck : vi tri ma hai nguoi choi chon vao ban co, yeu cau 
+ * rowcheck,colcheck : vi tri ma hai nguoi choi chon vao ban co, yeu cau
  * nhap lai neu trung vi tri da danh.
  * dataarr[]: mang luu vi tri hai nguoi choi de in ra man hinh
- * pointcheck: 1 Byte luu giu lieu vi tri hang, cot trong lan danh cua moi nguoi choi
-*/
-void playGames(uint8 *rowcheck, uint8 *colcheck, uint8 *dataarr[], uint8 *pointcheck)
+ * pointcheck: 1 Byte luu giu lieu vi tri hang, cot trong lan danh cua moi
+ * nguoi choi
+ */
+void playGames(uint8 *rowcheck, uint8 *colcheck, uint8 *dataarr[], \
+  uint8 *pointcheck)
 {
-  if(m_Stt == 0u)
+  if(0 == m_Stt)
   {
     do
     {   // kiem tra chi so mang hop le
       printf("Player 1: ");
-      scanf("%d %d", rowcheck, colcheck);
+      scanf("%hhd %hhd", rowcheck, colcheck);
       fflush(stdin); // xoa bo nho dem
     }
-    while( (*rowcheck >= row ) || (*colcheck >= col ) || *(dataarr[*rowcheck] + \
+    while( (*rowcheck >= row ) || (*colcheck >= col ) || *(dataarr[*rowcheck] +\
       *colcheck) != 0);
     if(*(dataarr[*rowcheck] + *colcheck) == 0)
     {
@@ -165,7 +167,7 @@ void playGames(uint8 *rowcheck, uint8 *colcheck, uint8 *dataarr[], uint8 *pointc
     do
     {
       printf("Player 2: ");
-      scanf("%d %d", rowcheck, colcheck);
+      scanf("%hhd %hhd", rowcheck, colcheck);
       fflush(stdin);
     }
     while( (*rowcheck >= row) || (*colcheck >= col) || *(dataarr[*rowcheck] + \
@@ -296,7 +298,7 @@ int checkWin(uint8 *a[], unsigned short int r, unsigned short int c)
   Count4 = 0;
   if( (i < (row - 1u)) && (j < (col - 1u)) && (i > 0) && (j > 0) )
   {
-    while(*(a[i]+j)==*(a[i-1]+j+1)    &&    *(a[i]+j)!=0)
+    while(*(a[i] + j) == *(a[i - 1u] + j + 1u) && *(a[i] + j) != 0)
     {
       Count4++;
       i--;
@@ -328,8 +330,9 @@ int checkWin(uint8 *a[], unsigned short int r, unsigned short int c)
 
   return 0;
 }
-/* Kiem tra dieu kien hoa cua hai nguoi khi di het ban co ma khong co nguoi 
- * thang cuoc */
+/* Kiem tra dieu kien hoa cua hai nguoi khi di het ban co ma khong co nguoi
+ * thang cuoc
+ */
 int checkDraw(void)
 {
   int retVal;
@@ -344,21 +347,22 @@ int checkDraw(void)
 
   return retVal;
 }
-/* Nhap du lieu hai nguoi choi hien tai vao con tro player1, cap phat them 
- * vung nho neu co nguoi choi moi va thuc hien luu ket qua khi choi xong 
+/* Nhap du lieu hai nguoi choi hien tai vao con tro player1, cap phat them
+ * vung nho neu co nguoi choi moi va thuc hien luu ket qua khi choi xong
  * tro lai con tro player1
  * Cac tham so:----------------------------------------------------------
  * **p: con tro struct Player luu tru toan bo du lieu nguoi choi co trong
  * file ini va hien tai:
  * *player1: con tro struct luu tru du lieu hai nguoi choi hien tai
- * *win: trang thai thang, thua. win=1(nguoi choi 1 thang), 
- * win=2(nguoi choi 2 thang) 
+ * *win: trang thai thang, thua. win=1(nguoi choi 1 thang),
+ * win=2(nguoi choi 2 thang)
  */
-void inputData(struct Player **p, struct Player *player1, uint8 *win, 
+void inputData(struct Player **p, struct Player *player1, uint8 *win,
   uint8 *arr[], uint8 *pointcheck)
 {   // du lieu hang, cot vua duoc danh
   unsigned char *rowcheck;
   unsigned char *colcheck;
+  void* allocatePtr;
   rowcheck = (unsigned char*)calloc(1, sizeof(unsigned char));
   colcheck = (unsigned char*)calloc(1, sizeof(unsigned char));
 
@@ -366,10 +370,10 @@ void inputData(struct Player **p, struct Player *player1, uint8 *win,
   if(0 == m_Pl1) // *player luu gia struct hai nguoi choi da duoc cap nhat
   {
     m_totalPerson++;
-    player1->win     = 0;
-    player1->draw    = 0;
-    player1->lose    = 0;
-    player1->rating  = 0.0f;
+    player1->win    = 0;
+    player1->draw   = 0;
+    player1->lose   = 0;
+    player1->rating = 0.0f;
   }
   if(0 == m_Pl2)
   {
@@ -379,48 +383,61 @@ void inputData(struct Player **p, struct Player *player1, uint8 *win,
     (player1 + 1u)->lose   = 0;
     (player1 + 1u)->rating = 0.0f;
   }
-  realloc(*p, sizeof(struct Player) * (m_oldPerson + m_totalPerson));
-  while(1)
+  allocatePtr = realloc(*p, \
+    sizeof(struct Player) * (m_oldPerson + m_totalPerson));
+  if (NULL == allocatePtr)
   {
-    system("cls");
-    displayBoard(player1, arr);
-    if(checkWin(arr, *rowcheck, *colcheck) == 1)
+    printf("Khong du bo nho!\n");
+
+    return;
+  }
+  else
+  {
+    while(1)
     {
-      printf("%s win!\n", player1->name);
-      player1->win          += 1;
-      (player1 + 1u)->lose  += 1;
-      *win                   = 1;
-      break;
+      system("clear");
+      displayBoard(player1, arr);
+      if(checkWin(arr, *rowcheck, *colcheck) == 1)
+      {
+        printf("%s win!\n", player1->name);
+        player1->win          += 1;
+        (player1 + 1u)->lose  += 1;
+        *win                   = 1;
+        break;
+      }
+      if(checkWin(arr, *rowcheck, *colcheck) == -1)
+      {
+        printf("%s win!\n",(player1 + 1u)->name);
+        (player1 + 1u)->win += 1;
+        player1->lose       += 1;
+        *win                 = 2;
+        break;
+      }
+      if(checkDraw() == 1)
+      {
+        printf("Draw!\n");
+        player1->draw        += 1;
+        (player1 + 1u)->draw += 1;
+        *win                  = 0;
+        break;
+      }
+      playGames(rowcheck, colcheck, m_Data, pointcheck);
     }
-    if(checkWin(arr, *rowcheck, *colcheck) == -1)
-    {
-      printf("%s win!\n",(player1 + 1u)->name);
-      (player1 + 1u)->win   += 1;
-      player1->lose         += 1;
-      *win                   = 2;
-      break;
-    }
-    if(checkDraw() == 1)
-    {
-      printf("Draw!\n");
-      player1->draw         += 1;
-      (player1 + 1u)->draw  += 1;
-      *win                   = 0;
-      break;
-    }
-    playGames(rowcheck, colcheck, m_Data, pointcheck);
   }
 }
 /* Hien thi thong tin nhung nguoi choi co ti le thang gan nhau */
 void infoSamePoint(struct Player *newplayer, uint8 *win)
 {
-  FILE     *fp;
-  float32  *f;
-  struct   Player *p;
-  uint8    i;
-  uint8    j;
-  float64  min; // Gia tri nho nhat cua hieu so ti le cua nguoi thang voi cac nguoi choi con lai
-  uint8    add;
+  FILE    *fp;
+  float32 *f;
+  struct  Player *p;
+  uint8   i;
+  uint8   j;
+/* Gia tri nho nhat cua hieu so ti le cua nguoi thang voi cac nguoi choi
+ * con lai
+ */
+  float64 min;
+  uint8   add;
 
   f = NULL;
   add = 0;
@@ -451,13 +468,13 @@ void infoSamePoint(struct Player *newplayer, uint8 *win)
     for(i = 0; i < (m_oldPerson + m_totalPerson); i++)
     {
       if(1 == *win)
-      {
-        if(strcmp(newplayer->name, (0 == (p + i)->name)) ) // so sanh ten nguoi choi thang
+      { /* so sanh ten nguoi choi thang */
+        if(strcmp(newplayer->name, (p + i)->name))
           add  =  i;
       }
       else if(2 == *win)
       {
-        if(strcmp((newplayer + 1u)->name, ( 0 == (p + i)->name)) )
+        if(strcmp((newplayer + 1u)->name, (p + i)->name))
           add  =  i;
       }
     }
@@ -476,7 +493,7 @@ void infoSamePoint(struct Player *newplayer, uint8 *win)
     printf("Nhung nguoi choi gan trinh do nhat la:\n");
     for(i=0; i<(m_oldPerson+m_totalPerson); i++)
     {
-      if( (i != add) && (min == (fabs((float64)((p + add)->rating) -\ 
+      if( (i != add) && (min == (fabs((float64)((p + add)->rating) -\
         (float64)((p + i)->rating)))) )
       {
         printf("%20s\t",(p+i)->name);
@@ -494,8 +511,8 @@ void infoSamePoint(struct Player *newplayer, uint8 *win)
 /* Tinh so luong nguoi choi co trong file ini */
 void checkTotalPerson(void)
 {
-  FILE  *f;
-  int16 num;
+  FILE     *f;
+  long int num;
 
   f   =   fopen("info.ini", "rb");
   if(NULL == f)
@@ -530,7 +547,8 @@ void printHistory(struct Player *p)
 /* Ham replay lan choi gan nhat
  * *rp:luu du lieu vi tri nguoi choi tu lan dau tien toi khi ket thuc van choi
  * *player: du lieu hai nguoi choi hien tai
- * *a[]: mang luu vi tri danh cua hai nguoi choi */
+ * *a[]: mang luu vi tri danh cua hai nguoi choi
+ */
 void replayGames(uint8 *rp, struct Player *player, uint8 *a[], uint8 *win)
 {
   uint8 c;
@@ -549,7 +567,7 @@ void replayGames(uint8 *rp, struct Player *player, uint8 *a[], uint8 *win)
   }
   while(m_Count--)
   {
-    system("cls");
+    system("clear");
     if( (c % 2) == 0)
     {
       *(a[*(rp + c) >> 4] + (*(rp + c) & 0x0f)) = PLAYER1;
@@ -577,15 +595,15 @@ void replayGames(uint8 *rp, struct Player *player, uint8 *a[], uint8 *win)
     Sleep(1500);
   }
   infoSamePoint(player, win);
-  system("pause");
+  system("read -p Press any key to continue!");
 }
-/******************************************************************************
-***                                                                         ***
-***                             LOCAL FUNCTIONS                             ***
-***                                                                         ***
-******************************************************************************/
-/******************************************************************************
-***                                                                         ***
-***                                  EOF                                    ***
-***                                                                         ***
-******************************************************************************/
+/*******************************************************************************
+**                                                                            **
+**                              LOCAL FUNCTIONS                               **
+**                                                                            **
+*******************************************************************************/
+/*******************************************************************************
+**                                                                            **
+**                               EOF                                          **
+**                                                                            **
+*******************************************************************************/
