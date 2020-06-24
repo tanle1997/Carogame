@@ -6,8 +6,8 @@ COMPILER_FLAGS+= -Wall -Werror -Wextra -Wunused -Wcast-align -Wconversion \
 				-Wpointer-arith -Wcast-qual -Wmissing-prototypes \
 				-Wno-missing-braces
 SOURCES_FILE+=  file_manager.c \
-				lib.c \
-				main.c
+		lib.c \
+		main.c
 all: caroGames
 main.o: main.c
 	${CC} ${COMPILER_FLAGS} -c main.c ${CFLAGS}
